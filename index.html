@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+
     <div id="main">
         <h1>Onlayn do'kon</h1>
-        <img src="https://i.pinimg.com/564x/45/8a/02/458a027d19ef50e6ec48a1b789847d6d.jpg" alt="asdf">
         <p>Lorem asdf asdf asdf asdf asdf asdf asdf asdf</p>
-        <button id="buy">To'lov qilish</button>
     </div>
+    
     <form id="form">
         <input type="text" placeholder="Ism" id="user_name">
         <input type="text" placeholder="Email" id="user_email">
@@ -21,39 +22,19 @@
         <div id="error"></div>
         <button id="order">Qaydqilish</button>
     </form>
+    
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://i.pinimg.com/564x/45/8a/02/458a027d19ef50e6ec48a1b789847d6d.jpg" alt="asdf">
+        <div class="card-body">
+            <h5 class="card-title">T-shirt 1</h5>
+            <p class="card-text">size</p>
+            <button id="buy" class="text-center">To'lov qilish</button>
+        </div>
+    </div>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
-        let tg= window.Telegram.WebApp;
-        let buy = document.getElementById("buy");
-        let order = document.getElementById("order");
-
-        buy.addEventListener("click", () => {
-            document.getElementById("main").style.display="none";
-            document.getElementById("form").style.display="block";
-            document.getElementById("user_name").value=tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
-            });
-        order.addEventListener("click", () => {
-            let name = document.getElementById("user_name").value;
-            let email = document.getElementById("user_email").value;
-            let phone = document.getElementById("user_phone").value;
-            if(name.lenght <= 1) {
-                document.getElementById("error").innerText = "Ismda xato";
-                return;
-            }
-            if(email.lenght <= 6) {
-                document.getElementById("error").innerText = "emailda xato";
-                return;
-            }
-            if(phone.lenght < 8) {
-                document.getElementById("error").innerTExt = "Raqamda xato";
-                return;
-            }
-
-            tg.close()}
-            );
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

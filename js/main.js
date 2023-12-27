@@ -8,8 +8,8 @@ buy.addEventListener("click", () => {
     tg.close();
 });
 
-but.oneclick = function() {
+but.oneclick(() => {
     tg.sendData(1);
     tg.close();
-}
+});
     

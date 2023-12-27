@@ -4,8 +4,8 @@ let order = document.getElementById("order");
 tg.expand();
 
 buy.addEventListener("click", () => {
-    let product_id = document.getElementById("product_id").value;
-    tg.sendData(product_id);
+    let id = 1;
+    tg.sendData(id);
     tg.close();
 });
     

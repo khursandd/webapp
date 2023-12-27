@@ -1,6 +1,5 @@
 let tg = window.Telegram.WebApp;
 let buy = document.getElementById("buy");
-let order = document.getElementById("order");
 tg.expand();
 
 buy.addEventListener("click", () => {
@@ -8,4 +7,9 @@ buy.addEventListener("click", () => {
     tg.sendData(id);
     tg.close();
 });
+
+but.oneclick = function() {
+    tg.sendData(1);
+    tg.close();
+}
     

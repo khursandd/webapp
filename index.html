@@ -10,13 +10,33 @@
 <body>
     <div id="main">
         <h1>Onlayn do'kon</h1>
-        <img src="https://i.pinimg.com/236x/f5/39/87/f539874b1045bed1a3adf0ff3d69138d.jpg" alt="asdf">
+        <img src="https://i.pinimg.com/564x/45/8a/02/458a027d19ef50e6ec48a1b789847d6d.jpg" alt="asdf">
         <p>Lorem asdf asdf asdf asdf asdf asdf asdf asdf</p>
         <button id="buy">To'lov qilish</button>
     </div>
+    <form id="form">
+        <input type="text" placeholder="Ism" id="user_name">
+        <input type="text" placeholder="Email" id="user_email">
+        <input type="text" placeholder="Telefon" id="user_phone">
+        <button id="order">Qaydqilish</button>
+    </form>
 
 
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg= window.Telegram.WebApp;
+        let buy = document.getElementById("buy");
+        let order = document.getElementById("order");
+
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display="none";
+            document.getElementById("form").style.display="block";
+            document.getElementById("user_name").value=tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+            });
+        order.addEventListener("click", () => {
+            tg.close()}
+            );
+    </script>
 </body>
 </html>

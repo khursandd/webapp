@@ -21,6 +21,7 @@ img {
     margin: 30px auto;
 }
 
+
 button {
     border: 0;
     border-radius: 5px;
@@ -37,4 +38,23 @@ button {
 
 button:hover {
     background: var(--tg-theme-secondary-bg-color);
+}
+
+#form {
+    display: none;
+    text-align: center;
+}
+
+input {
+    width: 40px;
+    outline: none;
+    margin: 10px 5%;
+    padding: 15px 10px;
+    font-size: 14px;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+
+input:focus {
+    border-color: #db5d5b5d;
 }

@@ -8,42 +8,29 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>    
-    <body>
-        <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
-        </div>
-        <p>Just text</p> <!--Просто текст для проверки-->
-        <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
-        <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
-        <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
-        <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
-     </body>
-
+    <div id="first">
+        <h1>First text</h1>
+        <button id="btn1">press me</button>
+    </div>
+    <div id="second">
+        <h2>Second text</h2>
+        <button id="btn2">press me 2</button>
+    </div>
+    
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
-
-        tg.MainButton.text = "Change";
-        tg.MainButton.setText("Change 2");
-        tg.MainButton.textColor('#7B6F79');
-        tg.MainButton.color = "#CD4052";
-        tg.MainButton.setParams({"color": "#007ACC"})
-        tg.MainButton.show();
-        
-let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
-btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-	if (tg.MainButton.isActive){ //если кнопка показана 
-		tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-		tg.MainButton.disable() //скрываем кнопку 
-	}
-	else{ //иначе
-		tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-		tg.MainButton.enable() //показываем 
-	}
-});
-Telegram.WebApp.onEvent('mainButtonClicked', function(){
-	tg.sendData("some string that we need to send"); 
-	//при клике на основную кнопку отправляем данные в строковом виде
-});
+        let btn1 = document.getElementById("btn1");
+        let btn2 = document.getElementById("btn2");
+        document.getElementById("btn2").style.display = "none";
+        btn1.addEventListener("click", () => {
+            document.getElementById("btn1").style.display = "none";
+            document.getElementById("btn2").style.display = "block";
+        })
+        btn2.addEventListener("click", () => {
+            document.getElementById("btn2").style.display = "none";
+            document.getElementById("btn1").style.display = "block";
+        })
     </script>
 </body>
 </html>

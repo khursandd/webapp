@@ -27,14 +27,8 @@
         tg.MainButton.textColor('#7B6F79');
         tg.MainButton.color = "#CD4052";
         tg.MainButton.setParams({"color": "#007ACC"})
-        btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-	if (tg.MainButton.isVisible){ //если кнопка показана 
-		tg.MainButton.hide() //скрываем кнопку 
-	}
-  else{ //иначе
-  	tg.MainButton.show() //показываем 
-  }
-});
+        tg.MainButton.show();
+        
 let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
 btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
 	if (tg.MainButton.isActive){ //если кнопка показана 

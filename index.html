@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
     <style>
-        div.second {
+        div#second {
             display: none;
         }
     </style>
@@ -22,7 +22,7 @@
         <button id="btn2">press me 2</button>
     </div>
     <div>
-        <button id="btn3">main button</button>
+        <button id="btn3">send</button>
     </div>
     
     
@@ -40,10 +40,10 @@
             document.getElementById("second").style.display = "none";
             document.getElementById("first").style.display = "block";
         });
-        tg.MainButton();
-        tg.MainButton.color("#31CC1A");
+    
         btn3.addEventListener("click", () => {
-            tg.MainButton.show();
+            tg.sendData("hello");
+            tg.close();
         });
     </script>
 </body>

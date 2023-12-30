@@ -8,34 +8,47 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>    
-    <div id="main" style="width: 18rem;">
-        <img src="https://i.pinimg.com/564x/45/8a/02/458a027d19ef50e6ec48a1b789847d6d.jpg" alt="asdf">
-        <div>
-            <h5>T-shirt 2</h5>
-            <p>size</p>
-            <h6>ID: <p id="product_id">1</p></h6>
-            <button id="buy">To'lov qilish</button>
-            <button id="but">close</button>
+    <body>
+        <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
         </div>
-    </div>
-
+        <p>Just text</p> <!--Просто текст для проверки-->
+        <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
+        <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
+        <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
+        <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
+     </body>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
-let buy = document.getElementById("buy");
-let but = document.getElementById("but");
-tg.expand();
 
-buy.addEventListener("click", () => {
-    let id = 1;
-    tg.sendData(id);
-    tg.close();
+        tg.MainButton.text = "Change";
+        tg.MainButton.setText("Change 2");
+        tg.MainButton.textColor('#7B6F79');
+        tg.MainButton.color = "#CD4052";
+        tg.MainButton.setParams({"color": "#007ACC"})
+        btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+	if (tg.MainButton.isVisible){ //если кнопка показана 
+		tg.MainButton.hide() //скрываем кнопку 
+	}
+  else{ //иначе
+  	tg.MainButton.show() //показываем 
+  }
 });
-
-but.oneclick("click", () => {
-    tg.sendData(1);
-    tg.close();
+let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
+btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
+	if (tg.MainButton.isActive){ //если кнопка показана 
+		tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
+		tg.MainButton.disable() //скрываем кнопку 
+	}
+	else{ //иначе
+		tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
+		tg.MainButton.enable() //показываем 
+	}
+});
+Telegram.WebApp.onEvent('mainButtonClicked', function(){
+	tg.sendData("some string that we need to send"); 
+	//при клике на основную кнопку отправляем данные в строковом виде
 });
     </script>
 </body>

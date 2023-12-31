@@ -25,7 +25,7 @@
         <button id="btn3">send</button>
     </div>
     <div>
-        <button id="mainbtn">show</button>
+        <button id="showmainbtn">show</button>
     </div>
     
     
@@ -35,7 +35,7 @@
         let btn1 = document.getElementById("btn1");
         let btn2 = document.getElementById("btn2");
         let btn3 = document.getElementById("btn3");
-        let mainbtn = document.getElementById("mainbtn");
+        let showmainbtn = document.getElementById("showmainbtn");
         btn1.addEventListener("click", () => {
             document.getElementById("first").style.display = "none";
             document.getElementById("second").style.display = "block";
@@ -49,9 +49,12 @@
             tg.sendData("hello");
             tg.close();
         });
-        mainbtn.addEventListener("click", () => {
-            tg.MainButton.text("buy");
-            tg.MainButton.show();
+        let mainButton = tg.MainButton();
+        showmainbtn.addEventListener("click", () => {
+            mainButton.show();
+        });
+        mainButton.onClick("click", () => {
+            tg.close();
         });
     </script>
 </body>

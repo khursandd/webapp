@@ -45,9 +45,9 @@
             tg.sendData("hello");
             tg.close();
         });
-        let mainButton = tg.MainButton();
-        mainButton.show();
-        mainButton.onClick("click", () => {
+        tg.MainButton();
+        tg.MainButton.show();
+        tg.MainButton.onClick("click", () => {
             tg.close();
         });
     </script>

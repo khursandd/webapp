@@ -24,10 +24,6 @@
     <div>
         <button id="btn3">send</button>
     </div>
-    <div>
-        <button id="showmainbtn">show</button>
-    </div>
-    
     
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -50,9 +46,7 @@
             tg.close();
         });
         let mainButton = tg.MainButton();
-        showmainbtn.addEventListener("click", () => {
-            mainButton.show();
-        });
+        mainButton.show();
         mainButton.onClick("click", () => {
             tg.close();
         });

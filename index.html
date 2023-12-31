@@ -47,12 +47,12 @@
             tg.sendData(product_id);
             tg.close();
         });
-        // tg.MainButton.show();
-        // tg.MainButton.text = "close";
+        tg.MainButton.show();
+        tg.MainButton.text = "close";
         
-        // Telegram.WebApp.onEvent('mainButtonClicked', function(){
-	    // tg.sendData(); 
-        // });
+        Telegram.WebApp.onEvent('mainButtonClicked', function(){
+	    tg.sendData(); 
+        });
     </script>
 </body>
 </html>

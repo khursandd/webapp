@@ -31,6 +31,7 @@
         let btn1 = document.getElementById("btn1");
         let btn2 = document.getElementById("btn2");
         let btn3 = document.getElementById("btn3");
+        let price = 0;
         let showmainbtn = document.getElementById("showmainbtn");
         btn1.addEventListener("click", () => {
             document.getElementById("first").style.display = "none";
@@ -46,6 +47,7 @@
             tg.close();
         });
         tg.MainButton.show();
+        tg.MainButton.text = "buy" + price;
         tg.MainButton.onClick("click", () => {
             tg.close();
         });

@@ -24,6 +24,9 @@
     <div>
         <button id="btn3">send</button>
     </div>
+    <div>
+        <button id="mainbtn">show</button>
+    </div>
     
     
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -32,6 +35,7 @@
         let btn1 = document.getElementById("btn1");
         let btn2 = document.getElementById("btn2");
         let btn3 = document.getElementById("btn3");
+        let mainbtn = document.getElementById("mainbtn");
         btn1.addEventListener("click", () => {
             document.getElementById("first").style.display = "none";
             document.getElementById("second").style.display = "block";
@@ -44,6 +48,10 @@
         btn3.addEventListener("click", () => {
             tg.sendData("hello");
             tg.close();
+        });
+        mainbtn.addEventListener("click", () => {
+            tg.MainButton.show();
+            tg.MainButton.text("buy");
         });
     </script>
 </body>

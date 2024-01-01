@@ -119,9 +119,8 @@
         <h2>${product.name}</h2>
         <img src="${product.photo}" alt="${product.name}" style="max-width: 100%;">
         <p>${product.description}</p>
-        <p>Цена: $${product.price.toFixed(2)}
-            ${product.id}</p>
-        <button name="${product.id}" onclick="buyProduct('${product.name}', ${product.price})">Купить</button>
+        <p>Цена: $${product.price.toFixed(2)}: id ${product.id}</p>
+        <button onclick="buyProduct('${product.name}', ${product.price})">Купить</button>
       `;
 
       // Добавление продукта в контейнер

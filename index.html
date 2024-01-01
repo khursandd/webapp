@@ -87,55 +87,56 @@
 
 <!-- Продукты будут добавлены сюда -->
 <div id="products-container"></div>
-
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-  // Функция для получения данных о продуктах из JSON-файла
-  async function getProducts() {
-    try {
-      const response = await fetch('products.json');
-      const productsData = await response.json();
-      return productsData;
-    } catch (error) {
-      console.error('Ошибка при загрузке данных:', error);
-      return [];
+    let tg = window.Telegram.WebApp;
+    // Функция для получения данных о продуктах из JSON-файла
+    async function getProducts() {
+        try {
+            const response = await fetch('products.json');
+            const productsData = await response.json();
+            return productsData;
+        } catch (error) {
+        console.error('Ошибка при загрузке данных:', error);
+        return [];
+        }
     }
-  }
 
-  // Функция для генерации продуктов на странице
-  async function generateProducts() {
-    // Получаем данные о продуктах из JSON-файла
-    const productsData = await getProducts();
+    // Функция для генерации продуктов на странице
+    async function generateProducts() {
+        // Получаем данные о продуктах из JSON-файла
+        const productsData = await getProducts();
 
-    // Контейнер для продуктов
-    var productsContainer = document.getElementById('products-container');
+        // Контейнер для продуктов
+        var productsContainer = document.getElementById('products-container');
 
-    // Генерация продуктов
-    productsData.forEach(function(product) {
-      var productElement = document.createElement('div');
-      productElement.className = 'product';
+        // Генерация продуктов
+        productsData.forEach(function(product) {
+            var productElement = document.createElement('div');
+            productElement.className = 'product';
 
-      // Создание HTML для каждого продукта
-      productElement.innerHTML = `
-        <h2>${product.name}</h2>
-        <img src="${product.photo}" alt="${product.name}" style="max-width: 100%;">
-        <p>${product.description}</p>
-        <p>Цена: $${product.price.toFixed(2)}: id ${product.id}</p>
-        <button onclick="buyProduct('${product.name}', ${product.price})">Купить</button>
-      `;
+        // Создание HTML для каждого продукта
+        productElement.innerHTML = `
+            <h2>${product.name}</h2>
+            <img src="${product.photo}" alt="${product.name}" style="max-width: 100%;">
+            <p>${product.description}</p>
+            <p>Цена: $${product.price.toFixed(2)}</p>
+            <button onclick="buyProduct('${product.id})">Купить</button>
+        `;
 
-      // Добавление продукта в контейнер
-      productsContainer.appendChild(productElement);
-    });
-  }
+         // Добавление продукта в контейнер
+        productsContainer.appendChild(productElement);
+        });
+    }
 
-  // Функция для обработки покупки
-  function buyProduct(productName, productPrice) {
-    alert(`Вы купили ${productName} за $${productPrice.toFixed(2)}`);
-    // Здесь вы можете добавить дополнительную логику для обработки покупки
-  }
+    // Функция для обработки покупки
+    function buyProduct(productId) {
+        tg.sendData(productId)
+        // Здесь вы можете добавить дополнительную логику для обработки покупки
+    }
 
-  // Вызываем функцию при загрузке страницы
-  generateProducts();
+    // Вызываем функцию при загрузке страницы
+    generateProducts();
 </script>
 
 </body>

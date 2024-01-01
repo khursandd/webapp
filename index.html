@@ -118,7 +118,7 @@
         // Создание HTML для каждого продукта
         let id = '1';
         productElement.innerHTML = `
-            <h2>aa${product.name}</h2>
+            <h2>a${product.name}</h2>
             <img src="${product.photo}" alt="${product.name}" style="max-width: 100%;">
             <p>${product.description}</p>
             <p>Цена: $${product.price.toFixed(2)}</p>
@@ -130,11 +130,11 @@
         });
     }
     
-    // Функция для обработки покупки
-    function buyProduct(id) {
-        tg.sendData('1')
-        // Здесь вы можете добавить дополнительную логику для обработки покупки
-    }
+    // // Функция для обработки покупки
+    // function buyProduct(id) {
+    //     tg.sendData('1')
+    //     // Здесь вы можете добавить дополнительную логику для обработки покупки
+    // }
 
     // Вызываем функцию при загрузке страницы
     generateProducts();

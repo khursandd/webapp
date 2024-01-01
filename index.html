@@ -122,7 +122,7 @@
             <img src="${product.photo}" alt="${product.name}" style="max-width: 100%;">
             <p>${product.description}</p>
             <p>Цена: $${product.price.toFixed(2)}</p>
-            <button onclick="buyProduct(${id})">Купить</button>
+            <button onclick="${tg.sendData('1')}">Купить</button>
         `;
 
          // Добавление продукта в контейнер
@@ -132,7 +132,7 @@
     
     // Функция для обработки покупки
     function buyProduct(id) {
-        tg.sendData(id)
+        tg.sendData('1')
         // Здесь вы можете добавить дополнительную логику для обработки покупки
     }
 

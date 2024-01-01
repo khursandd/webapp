@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>    
-    <div id="first">
+     <div id="first">
         <h1>First text</h1>
         <button id="btn1">press me</button>
     </div>
@@ -23,10 +23,15 @@
     </div>
     <div>
         <button id="btn3">send</button>
-    </div>
+    </div> 
+    <script>
+        var o = document.createElement("div");
+        o.innerHTML = "First";
+        document.getElementById("test").appendChild(o);
+    </script>
     
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
+     <script>
         let tg = window.Telegram.WebApp;
         let btn1 = document.getElementById("btn1");
         let btn2 = document.getElementById("btn2");
@@ -55,4 +60,66 @@
         });
     </script>
 </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Продукты</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Продукты будут добавлены сюда -->
+<div id="products-container"></div>
+
+<script>
+  // Загрузка данных из JSON файла
+  fetch('products.json')
+    .then(response => response.json())
+    .then(productsData => {
+      // Контейнер для продуктов
+      var productsContainer = document.getElementById('products-container');
+
+      // Генерация продуктов
+      productsData.forEach(function(product, index) {
+        var productElement = document.createElement('div');
+        productElement.className = 'product';
+
+        // Создание HTML для каждого продукта
+        productElement.innerHTML = `
+          <h2>${product.name}</h2>
+          <p>${product.description}</p>
+          <p>Цена: $${product.price.toFixed(2)}</p>
+          <button onclick="buyProduct(${index + 1})">Купить</button>
+        `;
+
+        // Добавление продукта в контейнер
+        productsContainer.appendChild(productElement);
+      });
+    })
+    .catch(error => console.error('Ошибка при загрузке данных:', error));
+
+  function buyProduct(productId) {
+    alert('Вы купили продукт ' + productId);
+    // Здесь вы можете добавить дополнительную логику для обработки покупки
+  }
+</script>
+
+</body>
 </html>
+

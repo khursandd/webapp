@@ -1,24 +1,24 @@
 [
     {  
-        "img": "photo/img1.jpeg",
+        "photo": "photo/img1.jpeg",
         "name": "Продукт 1",
         "description": "Краткое описание продукта 1.",
         "price": 10
     },
     {   
-        "img": "photo/img2.jpeg",
+        "photo": "photo/img2.jpeg",
         "name": "Продукт 2",
         "description": "Краткое описание продукта 2.",
         "price": 15
     },
     {
-        "img": "photo/img3.jpeg",
+        "photo": "photo/img3.jpeg",
         "name": "Продукт 3",
         "description": "Краткое описание продукта 3.",
         "price": 20
     },
     {
-        "img": "photo/img4.jpeg",
+        "photo": "photo/img4.jpeg",
         "name": "Продукт 4",
         "description": "Краткое описание продукта 4.",
         "price": 25

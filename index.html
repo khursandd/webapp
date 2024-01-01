@@ -121,7 +121,7 @@
             <img src="${product.photo}" alt="${product.name}" style="max-width: 100%;">
             <p>${product.description}</p>
             <p>Цена: $${product.price.toFixed(2)}</p>
-            <button onclick="buyProduct('${product.id})">Купить</button>
+            <button onclick="buyProduct(${product.id})">Купить</button>
         `;
 
          // Добавление продукта в контейнер

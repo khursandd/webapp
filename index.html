@@ -102,6 +102,7 @@
 
         // Создание HTML для каждого продукта
         productElement.innerHTML = `
+          <img src="${product.img}" alt="${product.name}" />
           <h2>${product.name}</h2>
           <p>${product.description}</p>
           <p>Цена: $${product.price.toFixed(2)}</p>

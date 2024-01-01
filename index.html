@@ -116,22 +116,23 @@
             productElement.className = 'product';
 
         // Создание HTML для каждого продукта
+        let id = product.id;
         productElement.innerHTML = `
             <h2>${product.name}</h2>
             <img src="${product.photo}" alt="${product.name}" style="max-width: 100%;">
             <p>${product.description}</p>
             <p>Цена: $${product.price.toFixed(2)}</p>
-            <button onclick="buyProduct()">Купить</button>
+            <button onclick="buyProduct(${id})">Купить</button>
         `;
 
          // Добавление продукта в контейнер
         productsContainer.appendChild(productElement);
         });
     }
-
+    
     // Функция для обработки покупки
-    function buyProduct() {
-        tg.sendData('1')
+    function buyProduct(id) {
+        tg.sendData(id)
         // Здесь вы можете добавить дополнительную логику для обработки покупки
     }
 
